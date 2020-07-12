@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  rabbitmq:
+    container_name: rabbitmq_server
+    restart: always
+    image: rabbitmq:3-management
+    ports:
+      - '15672:15672'
+    expose:  
+      - '15672'
+
+# volumes:
+#   rabbitmq_data:
+#     driver: local
