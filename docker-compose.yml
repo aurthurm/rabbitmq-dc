@@ -5,11 +5,16 @@ services:
     container_name: rabbitmq_server
     restart: always
     image: rabbitmq:3-management
+    hostname: rabbitmq
+    volumes:
+      - /var/lib/rabbitmq:/var/lib/rabbitmq
     ports:
       - '15672:15672'
+      - '5672:5672'
     expose:  
       - '15672'
+      - '5672'
 
-# volumes:
-#   rabbitmq_data:
-#     driver: local
+volumes:
+  rabbitmq:
+    driver: local
